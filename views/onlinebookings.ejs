@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Online Bookings</title>
+</head>
+<body>
+  <h1 style="text-align: center; margin-bottom: 1rem; font-weight: bolder; text-shadow: 1px 1px #cdcdcd;">HMS Global Hospitality LLC</h1>
+  <h3 style="text-align: center; text-decoration: underline;">Online Bookings</h3>
+    <div style="margin-top: 50px;" class="container">
+        <table class="table table-border table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Booking ID</th>
+                <th scope="col">Booked By</th>
+                <th scope="col">Check-In Date</th>
+                <th scope="col">Check-Out Date</th>
+                <th scope="col">Room Type</th>
+                <th scope="col">Bill Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% bookingsFound.forEach(function(booking){ %>
+                <th scope="row"> <a style="color: #C92C6D;" href="#"><%= booking.bookingID %></a></th>
+                <td><%= booking.bookindUsername %></td>
+                <td><%= booking.checkinDate %></td>
+                <td><%= booking.checkoutDate %></td>
+                <td><%= booking.RoomType %></td>
+                <td>₹ <%= booking.Price %></td>      
+                </tr>
+             <% }); %>
+            </tbody>
+          </table>
+          <div style="margin-bottom: 40px; margin-top: 40px;" class="text-center">
+            <a href="/cancelbookings"><button style="background-color: red; border: none;" class="btn btn-dark">Cancel Bookings</button></a>
+          </div>
+          <div style="margin-bottom: 40px; margin-top: 40px;" class="text-center">
+            <a href="/"><button class="btn btn-dark">Dashboard</button></a>
+          </div>
+    </div>
+</body>
+</html>
